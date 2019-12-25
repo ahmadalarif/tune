@@ -1,0 +1,51 @@
+
+<h1>All the Artists</h1>
+<%= link_to "Add an Artist", new_artist_path, { :class => "button waves-effect waves-light btn" } %>
+
+
+
+<div class = "container">
+<table class="table striped bordered">
+
+<div class = "container-fluid" style="background-color: wite;">
+<ul class="nav nav-pills nav-justified">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Tune</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/artists/new">Create New Artist</a>
+  </li>
+
+</ul>
+</div>
+</div>
+<tr>
+<th><div class="p-3 mb-2 bg-dark text-wite"><a href="#">Artist</a></th>
+<th><div class="p-3 mb-2 bg-dark text-wite"><a href="#">Image</a></th>
+<th><div class="p-3 mb-2 bg-dark text-wite"><a href="#">Albums</a></th>
+ <th><div class="p-3 mb-2 bg-dark text-wite"><a href="#">Edit</a></th>
+ <th><div class="p-3 mb-2 bg-dark text-wite"><a href="#">Delete</a></th>
+</tr>
+
+  <% @artists.each do |artist| %>
+      <tr>
+        <td><%= link_to artist.name, artist_path(artist) %></td>
+        <td><%= image_tag(artist.img, size: "100x100", alt: "Artist Image") %></td>
+         <td><%= artist.albums %></td>
+         <td><a class="btn-floating btn-large red" href="<%= edit_artist_path(artist) %>" >
+           <em class="large material-icons"><span class= "glyphicon glyphicon-edit"></span></em>
+          </a>
+        </td>
+        <td>
+            <span class="glyphicon glyphicon-trash"> <%= button_to raw(""), { method: :delete}, style: 'display:inline-block; border:none;' %> </span>
+            <%= button_to "Delete", artist_path(artist.id), method: :delete,
+              data: { confirm: "Are you sure?" } %>
+           </td>
+      </tr>
+       
+  
+  
+  <% end %>
+
+
+</table>
