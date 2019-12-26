@@ -2,6 +2,10 @@
 
 This README is about my project 2 (Tune app)
 
+The project is about a web site which allows the user to sign in and sign up if he wants to create an account. 
+And allows him to change the password if he forgot the password , when he signed in he will be able to add artists , songs , photos for his artist 
+
+
 Things that i have covered and used:
 
 * Ruby version
